@@ -157,7 +157,7 @@ int main()
     int grade,sum1 = 0,counter = 0;
     int grades[TOTAL_GRADE] = {0};
     printf("> Enter your grades ending with '-1':\n");
-    printf("> No grades above 100 or below 0 are counted\n);
+    printf("> No grades above 100 or below 0 are counted\n");
     while (grade != -1 || (counter % 2 != 1 && counter != 0)) {
         if (scanf("%d", &grade) != 1)
             return 1;
@@ -172,9 +172,16 @@ int main()
         counter++;
     }
     char in;
+    int isError = 0;
 
     while (1)
     {
+        if (isError) {
+            char tmp;
+            scanf("%c",tmp);
+            isError = 0;
+            continue;
+        }
         printf("> Enter your command:\n");
         if (scanf(" %c", &in) != 1)
             break;
@@ -194,9 +201,11 @@ int main()
         case 'A': // Greater than
         {
             int temp1;
-            printf("> Enter lower bound:\n");
-            if (scanf("%d",&temp1) != 1)
+            if (scanf("%d",&temp1) != 1) {
+                printf("Invalid syntax, use A <Grade>\n");
+                isError = 1;
                 break;
+            }
             printf("> %d\n",greater(grades,temp1));
             break;
 
@@ -204,9 +213,11 @@ int main()
         case 'B': { // Less than
 
             int temp1;
-            printf("> Enter upper bound:\n");
-            if (scanf("%d",&temp1) != 1)
+            if (scanf("%d",&temp1) != 1) {
+                printf("Invalid syntax, use B <Grade>\n");
+                isError = 1;
                 break;
+            }
             printf("> %d\n",less(grades,temp1));
             break;
 
@@ -214,9 +225,11 @@ int main()
         case 'F': {
             int temp1;
             double temp2;
-            printf("> Enter passing grade and what percentage of the class needs to pass:\n");
-            if (scanf("%d %lf",&temp1,&temp2) != 2)
+            if (scanf("%d %lf",&temp1,&temp2) != 2) {
+                printf("Invalid syntax, use F <Grade> <Class Percentage>\n");
+                isError = 1;
                 break;
+            }
             if (temp1 > 100 || temp2 > 100) {
                 printf("> 0\n");
                 break;
@@ -226,9 +239,7 @@ int main()
 
         } // (input1) < x (input2)
         default: {printf("> This command is not currently supported by the system.\n"); break;} // Default output
-
         }
     }
-
   return 0;
 }
