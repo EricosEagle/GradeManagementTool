@@ -23,6 +23,7 @@
 ```
 
 > Enter your grades ending with '-1':
+> No grades above 100 or below 0 are counted
 100 90 0 0 70 -1
 > Enter your command:
 V
