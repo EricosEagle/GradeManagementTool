@@ -73,9 +73,9 @@ F
 90 105
 > 0
 > Enter a command:
-F 90 **Bad input**
+F 90
 > Enter a command:
-F B **Bad input**
+F B
 > Enter a command:
 G
 > This command is currently not supported by the system.
