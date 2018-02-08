@@ -72,9 +72,9 @@ F
 90 105
 # 0
 # Enter a command:
-F 90 ### Bad input
+F 90 **Bad input**
 # Enter a command:
-F B ### Bad input
+F B **Bad input**
 # Enter a command:
 G
 # This command is currently not supported by the system.
