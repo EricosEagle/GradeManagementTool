@@ -127,22 +127,11 @@ int less(int array[],int num) {
 } */
 
 int factor(int array[],int pass, double percent) {
-    int factor = 0,min = 101, max = -1,length = 0,sum = 0;
+    int factor = 0,length = 0,sum = 0;
     double per;
     percent /= 100;
-    for (int i = 0; i <= 100; i++) { //MIN
-        if (array[i] != 0) {
-            min = i;
-            break;
-        }
-    }
-    for (int i = 100; i > min; i--) //MAX
-    {
-        if (array[i] != 0) {
-            max = i;
-            break;
-        }
-    }
+    int min = minimum(array);
+    int max = maximum(array);
     for (int i = min; i <= max; i++) //LENGTH
         {
             if (array[i] != 0)
@@ -167,6 +156,8 @@ int main()
 {
     int grade,sum1 = 0,counter = 0;
     int grades[TOTAL_GRADE] = {0};
+    printf("Enter your grades ending with '-1'\n");
+    printf("No grades above 100 or below 0 are counted\n);
     while (grade != -1 || (counter % 2 != 1 && counter != 0)) {
         if (scanf("%d", &grade) != 1)
             return 1;
@@ -186,40 +177,44 @@ int main()
     {
         if (scanf(" %c", &in) != 1)
             break;
+        printf("Enter yor command:\n");
         switch (in) {
         case 'V': {printf("%d\n",avgR(sum1,counter)); break;} // Rounded Average
-        case 'X': {
+        case 'X': { // Maximum
             printf("%d\n",maximum(grades));
             break;
-        } // Maximum
+        } 
         case 'I': {printf("%d\n",minimum(grades)); break;} // Minimum
-        case 'M':
+        case 'M': // Median
         {
             printf("%d\n",median(grades));
             break;
 
-        } // Median
-        case 'A':
+        }
+        case 'A': // Greater than
         {
             int temp1;
+            printf("Enter lower bound:\n");
             if (scanf("%d",&temp1) != 1)
                 break;
             printf("%d\n",greater(grades,temp1));
             break;
 
-        } // x > (input)
-        case 'B': {
+        } 
+        case 'B': { // Less than
 
             int temp1;
+            printf("Enter upper bound:\n");
             if (scanf("%d",&temp1) != 1)
                 break;
             printf("%d\n",less(grades,temp1));
             break;
 
-        } // x > (input)
+        } // Factor
         case 'F': {
             int temp1;
             double temp2;
+            printf("Enter passing grade and what percentage of the class needs to pass\n");
             if (scanf("%d %lf",&temp1,&temp2) != 2)
                 break;
             if (temp1 > 100 || temp2 > 100) {
