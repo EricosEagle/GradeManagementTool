@@ -126,10 +126,6 @@ int less(int array[],int num) {
     return sum;
 } */
 
-void debug(int num) {
-    printf("%d\n",num);
-}
-
 int factor(int array[],int pass, double percent) {
     int factor = 0,min = 101, max = -1,length = 0,sum = 0;
     double per;
