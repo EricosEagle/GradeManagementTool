@@ -156,8 +156,8 @@ int main()
 {
     int grade,sum1 = 0,counter = 0;
     int grades[TOTAL_GRADE] = {0};
-    printf("Enter your grades ending with '-1':\n");
-    printf("No grades above 100 or below 0 are counted\n);
+    printf("> Enter your grades ending with '-1':\n");
+    printf("> No grades above 100 or below 0 are counted\n);
     while (grade != -1 || (counter % 2 != 1 && counter != 0)) {
         if (scanf("%d", &grade) != 1)
             return 1;
@@ -175,57 +175,57 @@ int main()
 
     while (1)
     {
-        printf("Enter your command:\n");
+        printf("> Enter your command:\n");
         if (scanf(" %c", &in) != 1)
             break;
         switch (in) {
-        case 'V': {printf("%d\n",avgR(sum1,counter)); break;} // Rounded Average
+        case 'V': {printf("> %d\n",avgR(sum1,counter)); break;} // Rounded Average
         case 'X': { // Maximum
-            printf("%d\n",maximum(grades));
+            printf("> %d\n",maximum(grades));
             break;
         } 
-        case 'I': {printf("%d\n",minimum(grades)); break;} // Minimum
+        case 'I': {printf("> %d\n",minimum(grades)); break;} // Minimum
         case 'M': // Median
         {
-            printf("%d\n",median(grades));
+            printf("> %d\n",median(grades));
             break;
 
         }
         case 'A': // Greater than
         {
             int temp1;
-            printf("Enter lower bound:\n");
+            printf("> Enter lower bound:\n");
             if (scanf("%d",&temp1) != 1)
                 break;
-            printf("%d\n",greater(grades,temp1));
+            printf("> %d\n",greater(grades,temp1));
             break;
 
         } 
         case 'B': { // Less than
 
             int temp1;
-            printf("Enter upper bound:\n");
+            printf("> Enter upper bound:\n");
             if (scanf("%d",&temp1) != 1)
                 break;
-            printf("%d\n",less(grades,temp1));
+            printf("> %d\n",less(grades,temp1));
             break;
 
         } // Factor
         case 'F': {
             int temp1;
             double temp2;
-            printf("Enter passing grade and what percentage of the class needs to pass:\n");
+            printf("> Enter passing grade and what percentage of the class needs to pass:\n");
             if (scanf("%d %lf",&temp1,&temp2) != 2)
                 break;
             if (temp1 > 100 || temp2 > 100) {
-                printf("0\n");
+                printf("> 0\n");
                 break;
             }
-            printf("%d\n",factor(grades,temp1,temp2));
+            printf("> %d\n",factor(grades,temp1,temp2));
             break;
 
         } // (input1) < x (input2)
-        default: {printf("This command is not currently supported by the system.\n"); break;} // Default output
+        default: {printf("> This command is not currently supported by the system.\n"); break;} // Default output
 
         }
     }
