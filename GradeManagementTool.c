@@ -156,7 +156,7 @@ int main()
 {
     int grade,sum1 = 0,counter = 0;
     int grades[TOTAL_GRADE] = {0};
-    printf("Enter your grades ending with '-1'\n");
+    printf("Enter your grades ending with '-1':\n");
     printf("No grades above 100 or below 0 are counted\n);
     while (grade != -1 || (counter % 2 != 1 && counter != 0)) {
         if (scanf("%d", &grade) != 1)
@@ -175,9 +175,9 @@ int main()
 
     while (1)
     {
+        printf("Enter your command:\n");
         if (scanf(" %c", &in) != 1)
             break;
-        printf("Enter yor command:\n");
         switch (in) {
         case 'V': {printf("%d\n",avgR(sum1,counter)); break;} // Rounded Average
         case 'X': { // Maximum
@@ -214,7 +214,7 @@ int main()
         case 'F': {
             int temp1;
             double temp2;
-            printf("Enter passing grade and what percentage of the class needs to pass\n");
+            printf("Enter passing grade and what percentage of the class needs to pass:\n");
             if (scanf("%d %lf",&temp1,&temp2) != 2)
                 break;
             if (temp1 > 100 || temp2 > 100) {
